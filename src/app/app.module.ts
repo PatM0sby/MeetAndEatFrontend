@@ -7,6 +7,7 @@ import { NavbarModule } from './shared';
 import { HomeModule } from './home/home.module';
 import { TodolistModule } from './todolist/todolist.module';
 import { MeetAndEatModule } from './meetandeat/meetandeat.module';
+import { EventsModule } from './event/events.module';
 
 @NgModule({
     declarations: [
@@ -17,6 +18,7 @@ import { MeetAndEatModule } from './meetandeat/meetandeat.module';
         HomeModule,
         TodolistModule,
         MeetAndEatModule,
+        EventsModule,
         routing
     ],
     providers: [ APP_PROVIDERS, appRoutingProviders ],

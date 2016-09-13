@@ -1,0 +1,96 @@
+<style>
+    .badge:hover {
+        background-color: orangered;
+        cursor: pointer;
+    }
+    .list-options {
+        vertical-align: middle;
+        display: inline-block;
+    }
+    [hidden] {
+        display: none;
+    }
+    .ng-valid[required] {
+      border-left: 5px solid #42A948; /* green */
+    }
+    .ng-invalid:not(form) {
+      border-left: 5px solid orange; /* orange */
+    }
+</style>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><i class="fa fa-list"></i> Event List &nbsp;<span class="badge">{{list.length}}</span></h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 for="event">Add Event</h1>
+            <!-- <div class="form-group">
+                -->
+                <form (submit)="addEvent()" (upload)="upload()" #eventForm="ngForm">
+                    <div class="form-inline">
+                        <label>Name:
+                            <div layout="column" layout-align="center">
+                                <input required [(ngModel)]="event.name" id="event" name="eventName" type="text" class="form-control" size="50">
+                            </div>
+                        </label>
+                        <label>Number of guests:
+                            <div layout="column" layout-align="center">
+                                <input required [(ngModel)]="event.numberofseats" id="event" name="numseats" type="text" class="form-control" size="50">
+                            </div>
+                        </label>
+                        <label>Tags:
+                            <div layout="column" layout-align="center">
+                                <input required [(ngModel)]="event.tags" id="event" name="tags" type="text" class="form-control" size="50">
+                            </div>
+                        </label>
+                        <label>Description:
+                            <div layout="column" layout-align="center">
+                                <input required [(ngModel)]="event.description" id="event" name="desc" type="text" class="form-control" size="50">
+                            </div>
+                        </label>
+                        <label>Event Address:
+                            <div layout="column" layout-align="center">
+                                <input required [(ngModel)]="event.address" id="event" name="address" type="text" class="form-control" size="50">
+                            </div>
+                        </label>
+                        <label>Selection:
+                            <div layout="column" layout-align="center">
+                                <input required [(ngModel)]="event.selection" id="event" name="selection" type="text" class="form-control" size="50">
+                            </div>
+                        </label>
+                        <label>Price per person:
+                            <div layout="column" layout-align="center">
+                                <input required [(ngModel)]="event.priceperperson" id="event" name="price" type="text" class="form-control" size="50">
+                            </div>
+                        </label>
+                        <button type="submit" class="btn btn-primary" float="right">Add</button>
+                        <label>Meal Picture:
+                            <div layout="column" layout-align="center">
+                                <input required [(ngModel)]="event.picture" id="event" name="picture" type="text" class="form-control" size="50">
+                            </div>
+                        </label>
+                        <button type="upload" class="btn btn-primary" float="right">Upload</button>
+                    </div>
+                </form>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-5">
+            <ul class="list-group">
+                <li *ngFor="let event of (list); let i = index;"class="list-group-item">
+                    <span> <img width="100" height="100" src={{event.picture}}>
+                        <h3>{{event.name}}</h3> On {{event.date | date: 'dd'}}/{{event.date | date:'MM'}}/{{event.date | date: 'yyyy'}}
+                        <p style="text-indent: 5em" ></p>{{event.numberofseats}} Seats available!
+                        <p *ngFor="let tag of (event.tags); let i = index;">
+                            <img width="20" height="20" src={{tag}}>
+                        </p>
+                    </span>
+                </li>
+                </ul>
+            </div>
+        </div>
+  </div>
+</div>
