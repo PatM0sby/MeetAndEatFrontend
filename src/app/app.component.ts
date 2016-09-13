@@ -13,4 +13,4 @@ export class AppComponent {
         this.appBrand = CONSTANTS.MAIN.APP.BRAND;
         logger.log('test');
     }
-}//comment
+}
