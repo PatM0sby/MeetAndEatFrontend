@@ -13,7 +13,7 @@ export class EventsComponent implements OnInit {
     private events: Event[];
     private fileToUpload: File;
     constructor(private eventService: EventService) {
-        // this.event = new Event(null, null, null, null, null, null, null, null);
+        this.event = new Event("", "", "", null, null, null, null, null);
         // this.events = [
         //    new Event('Pizza', 6, [ 'assets/images/Vegan.png' , 'assets/images/Halal.png' ], 'tasty',
         //        'assets/images/Pizza.jpg', 'home', 'aa', 3),
@@ -27,9 +27,11 @@ export class EventsComponent implements OnInit {
     }
 
     getEvents() {
+
         this.eventService.getEvents()
             .subscribe(
-                events => this.events = events,
+                events => { this.events = events;
+                console.log(this.events); },
                 error => this.errorMessage = <any>error);
     }
 

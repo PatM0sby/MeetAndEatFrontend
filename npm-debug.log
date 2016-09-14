@@ -7,7 +7,7 @@
 6 silly lifecycle angular2-starter@1.0.0-rc.6~prestart: no script for prestart, continuing
 7 info lifecycle angular2-starter@1.0.0-rc.6~start: angular2-starter@1.0.0-rc.6
 8 verbose lifecycle angular2-starter@1.0.0-rc.6~start: unsafe-perm in lifecycle true
-9 verbose lifecycle angular2-starter@1.0.0-rc.6~start: PATH: /usr/lib/node_modules/npm/bin/node-gyp-bin:/home/sara/MeanStackProject/MeetAndEatFrontend/node_modules/.bin:/usr/bin:/home/sara/bin:/home/sara/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+9 verbose lifecycle angular2-starter@1.0.0-rc.6~start: PATH: /usr/lib/node_modules/npm/bin/node-gyp-bin:/home/sara/MeanStackProject/MeetAndEatFrontend/node_modules/.bin:/usr/bin:/home/sara/bin:/home/sara/.local/bin:/home/sara/bin:/home/sara/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
 10 verbose lifecycle angular2-starter@1.0.0-rc.6~start: CWD: /home/sara/MeanStackProject/MeetAndEatFrontend
 11 silly lifecycle angular2-starter@1.0.0-rc.6~start: Args: [ '-c', 'gulp serve-dev' ]
 12 silly lifecycle angular2-starter@1.0.0-rc.6~start: Returned: code: 1  signal: null

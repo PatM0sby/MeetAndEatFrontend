@@ -18,7 +18,7 @@
 </style>
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title"><i class="fa fa-list"></i> Event List &nbsp;<span class="badge">{{list.length}}</span></h3>
+    <h3 class="panel-title"><i class="fa fa-list"></i> Event List &nbsp;</h3>
   </div>
   <div class="panel-body">
     <div class="row">
@@ -79,16 +79,15 @@
                  </form>
          </div>
      </div>
-
      <div class="row">
          <div class="col-md-12">
              <ul class="list-group">
-                 <li *ngFor="let event of (list); let i = index;"class="list-group-item">
-                     <span> <img width="100" height="100" src={{event.picture}}>
-                         <h3>{{event.name}}</h3> On {{event.date | date: 'dd'}}/{{event.date | date:'MM'}}/{{event.date | date: 'yyyy'}}
-                         <p style="text-indent: 5em" ></p>{{event.numberofseats}} Seats available!
-                         <p *ngFor="let tag of (event.tags); let i = index;">
-                             <img width="20" height="20" src={{tag}}>
+                 <li *ngFor="let ind of events; "class="list-group-item">
+                     <span> <img width="100" height="100" src={{ind.picture}}>
+                         <h3>{{ind.name}}</h3> On {{ind.date | date: 'dd'}}/{{ind.date | date:'MM'}}/{{ind.date | date: 'yyyy'}}
+                         <p style="text-indent: 5em" ></p>{{ind.numberofseats}} Seats available!
+                         <p *ngFor="let tag_ind of (ind.tags);">
+                             <img width="20" height="20" src={{tag_ind}}>
                          </p>
                      </span>
                  </li>
