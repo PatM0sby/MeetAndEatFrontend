@@ -30,13 +30,17 @@ export class EventsComponent implements OnInit {
 
         this.eventService.getEvents()
             .subscribe(
-                events => {this.events = events; console.log(this.events);
-                },
+                events => { this.events = events;
+                console.log(this.events); },
                 error => this.errorMessage = <any>error);
     }
 
-    addEvent() {
-        this.events = this.events.concat(Event.clone(this.event));
+    addEvent () {
+        if (!event) { return; }
+        this.eventService.addEvent(this.event)
+            .subscribe(
+                event  => this.events.push(event),
+                error =>  this.errorMessage = <any>error);
         this.event.clear();
     }
 
