@@ -60,7 +60,7 @@
                          </label>
                          <label>Price per person:
                              <div layout="column" layout-align="center" class="col-md-12">
-                                 <input required [(ngModel)]="event.priceperperson" id="event" name="price" type="text" class="form-control" size="50">
+                                 <input required [(ngModel)]="event.priceperperson" id="event" name="price" type="text" class="form-control" size="50" >
                              </div>
                          </label>
 
@@ -71,7 +71,7 @@
                              </div>
                          </label>
                          <div class=".button-option">
-                            <button type="submit" class="btn btn-primary" align="right">Add</button>
+                            <button type="submit" class="btn btn-primary" style="float: right;">Add</button>
                             </div>
                             <div layout="column" layout-align="center" class="col-md-12">
                          </div>
@@ -83,11 +83,13 @@
          <div class="col-md-12">
              <ul class="list-group">
                  <li *ngFor="let ind of events; "class="list-group-item">
-                     <span> <img width="100" height="100" src={{ind.picture}}>
+
+                         <img width="100" height="100" src={{ind.picture}} style="float: center;">
                          <h3>{{ind.name}}</h3> On {{ind.date | date: 'dd'}}/{{ind.date | date:'MM'}}/{{ind.date | date: 'yyyy'}}
-                         <p style="text-indent: 5em" ></p>{{ind.numberofseats}} Seats available!
-                             <img width="20" height="20" src={{ind.tags}}>
-                     </span>
+                         <p style="text-indent: 5em" ></p>
+                         {{ind.numberofseats}} Seats available!
+                         <img width="20" height="20" src={{ind.tags}}>
+                        <button (Click) = attendEvent(ind) class="btn btn-primary" style="float: right;">Attend</button>
                  </li>
                  </ul>
              </div>
