@@ -67,7 +67,7 @@
                          <label>Meal Picture:
                              <div layout="column" layout-align="center" class="col-md-12">
                                  <input required [(ngModel)]="event.picture" id="event" name="picture" type="text" class="form-control" size="50">
-                                 <button type="upload" class="btn btn-primary" float="right">Upload</button>
+                                 <!-- <button type="upload" class="btn btn-primary" float="right">Upload</button> -->
                              </div>
                          </label>
                          <div class=".button-option">
@@ -86,9 +86,7 @@
                      <span> <img width="100" height="100" src={{ind.picture}}>
                          <h3>{{ind.name}}</h3> On {{ind.date | date: 'dd'}}/{{ind.date | date:'MM'}}/{{ind.date | date: 'yyyy'}}
                          <p style="text-indent: 5em" ></p>{{ind.numberofseats}} Seats available!
-                         <p *ngFor="let tag_ind of (ind.tags);">
-                             <img width="20" height="20" src={{tag_ind}}>
-                         </p>
+                             <img width="20" height="20" src={{ind.tags}}>
                      </span>
                  </li>
                  </ul>

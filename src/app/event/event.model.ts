@@ -1,7 +1,7 @@
 export class Event {
     public name: string;
     public numberofseats: number;
-    public tags: [string];
+    public tags: string;
     public description: string;
     public picture: string;
     public address: string;
@@ -14,7 +14,7 @@ export class Event {
             event.address, event.selection, event.priceperperson);
     }
 
-    constructor(name: string, numseats: number, tags: [string], desc: string, picture: string,
+    constructor(name: string, numseats: number, tags: string, desc: string, picture: string,
                 address: string, selection: string, price: number) {
         this.name = name;
         this.numberofseats = numseats;
@@ -30,7 +30,7 @@ export class Event {
     clear() {
         this.name = '';
         this.numberofseats = null;
-        this.tags = [''];
+        this.tags = '';
         this.description = '';
         this.picture = '';
         this.address = '';
