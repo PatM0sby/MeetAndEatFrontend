@@ -44,6 +44,15 @@ export class EventsComponent implements OnInit {
         this.event.clear();
     }
 
+    attendEvent(event: Event) {
+        this.eventService.attendEvent(event)
+            .subscribe(
+                nevent  => this.events.splice(this.events.indexOf(event), 1, nevent),
+                error =>  this.errorMessage = <any>error);
+        this.event.clear();
+
+    }
+
     // upload() {
     //    this.makeFileRequest("http://localhost:5001/events", this.fileToUpload).then((result) => {
     //        console.log(result);

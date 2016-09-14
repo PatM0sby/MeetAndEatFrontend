@@ -1,4 +1,5 @@
 export class Event {
+    public _id: string;
     public name: string;
     public numberofseats: number;
     public tags: string;
