@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from './todo.model';
 import { Event } from './event.model';
-import { EventService } from './meetandeat.service';
+import { EventsService } from './meetandeat.service';
 
 @Component({
     selector: 'as-meetandeat',
@@ -15,7 +15,7 @@ export class MeetAndEatComponent implements OnInit {
     private list: Todo[];
     // private showCompleted: Boolean;
 
-    constructor(private eventService: EventService) {
+    constructor(private eventService: EventsService) {
     }
 
     ngOnInit() {

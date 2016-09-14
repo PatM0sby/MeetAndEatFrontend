@@ -12,7 +12,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
 @Injectable()
-export class EventService {
+export class EventsService {
     private eventUrl = 'http://localhost:3000/api/events';  // URL to web API
 
     constructor(private http: Http) {

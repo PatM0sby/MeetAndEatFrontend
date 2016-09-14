@@ -1,31 +1,45 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Event } from './event.model';
+import { EventService } from './events.service';
+
 
 @Component({
     selector: 'as-events',
     templateUrl: 'app/event/events.html'
 })
-export class EventsComponent {
+export class EventsComponent implements OnInit {
     public event: Event;
-    private list: Event[];
+    public errorMessage: string;
+    private events: Event[];
     private fileToUpload: File;
-    constructor() {
-        this.event = new Event(null, null, null, null, null, null, null, null);
-        this.list = [
-            new Event('Pizza', 6, [ 'assets/images/Vegan.png' , 'assets/images/Halal.png' ], 'tasty',
-                'assets/images/Pizza.jpg', 'home', 'aa', 3),
-            new Event('Pizza', 6, [ 'assets/images/Vegan.png' ], 'tasty',
-                'assets/images/Pizza.jpg', 'home', 'aa', 3)
-        ];
+    constructor(private eventService: EventService) {
+        // this.event = new Event(null, null, null, null, null, null, null, null);
+        // this.events = [
+        //    new Event('Pizza', 6, [ 'assets/images/Vegan.png' , 'assets/images/Halal.png' ], 'tasty',
+        //        'assets/images/Pizza.jpg', 'home', 'aa', 3),
+        //   new Event('Pizza', 6, [ 'assets/images/Vegan.png' ], 'tasty',
+        //        'assets/images/Pizza.jpg', 'home', 'aa', 3)
+        // ];
+    }
+
+    ngOnInit() {
+        this.getEvents();
+    }
+
+    getEvents() {
+        this.eventService.getEvents()
+            .subscribe(
+                events => this.events = events,
+                error => this.errorMessage = <any>error);
     }
 
     addEvent() {
-        this.list = this.list.concat(Event.clone(this.event));
+        this.events = this.events.concat(Event.clone(this.event));
         this.event.clear();
     }
 
     upload() {
-        this.makeFileRequest("http://localhost:3000/event", this.fileToUpload).then((result) => {
+        this.makeFileRequest("http://localhost:3000/api/events", this.fileToUpload).then((result) => {
             console.log(result);
         }, (error) => {
             console.error(error);
