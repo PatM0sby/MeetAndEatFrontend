@@ -40,17 +40,18 @@ export class EventService {
     }
 
     attendEvent(event: Event): Observable<Event> {
-        if (event.numberofseats >=0) event.numberofseats=event.numberofseats -1;
+        if ( event.numberofseats > 0 ) { event.numberofseats = event.numberofseats - 1; }
         let body = JSON.stringify(event);
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
-        return this.http.put(this.eventUrl+'/'+event._id, body, options)
+        return this.http.put( this.eventUrl + '/' + event._id , body , options)
             .map((res: Response) => res.json())
             .catch(this.handleError);
 
 
     }
+
 
     private handleError(error: any) {
         // In a real world app, we might use a remote logging infrastructure
