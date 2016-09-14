@@ -3,3 +3,4 @@ export * from './meetandeat.component';
 export * from './meetandeat.routes';
 export * from './completed-filter.pipe';
 export * from './meetandeat.module';
+export * from './meetandeat.service';

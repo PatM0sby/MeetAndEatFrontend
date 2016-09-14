@@ -1,24 +1,43 @@
-import { Component } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
 import { Todo } from './todo.model';
+import { Event } from './event.model';
+import { EventService } from './meetandeat.service';
 
 @Component({
     selector: 'as-meetandeat',
     templateUrl: 'app/meetandeat/meetandeat.html'
 })
-export class MeetAndEatComponent {
+export class MeetAndEatComponent implements OnInit {
     public todo: Todo;
-    private list: Todo[];
-    private showCompleted: Boolean;
+           errorMessage: string;
+           events: Event[];
 
-    constructor() {
-        this.showCompleted = true;
-        this.todo = new Todo('Add me to list!', false);
-        this.list = [
-            new Todo('Data from Database'),
-            new Todo('PutDispenserHere', true)
-        ];
+    private list: Todo[];
+    // private showCompleted: Boolean;
+
+    constructor(private eventService: EventService) {
     }
+
+    ngOnInit() {
+        this.getEvents();
+    }
+
+    getEvents() {
+        this.eventService.getEvents()
+            .subscribe(
+                events => this.events = events,
+                error => this.errorMessage = <any>error);
+    }
+
+    /*
+     addEvent( name: string ) {
+     if (!name) { return; }
+     this.eventService.addEvent(name)
+     .subscribe(
+     hero  => this.events.push(event),
+     error =>  this.errorMessage = <any>error);
+     }
+     */
 
     addTodo() {
         this.list = this.list.concat(Todo.clone(this.todo));
@@ -29,4 +48,5 @@ export class MeetAndEatComponent {
         this.list = this.list.filter(
             (todo, index) => index !== todoIndex);
     }
+
 }

@@ -9,6 +9,9 @@ import { TodolistModule } from './todolist/todolist.module';
 import { MeetAndEatModule } from './meetandeat/meetandeat.module';
 import { EventsModule } from './event/events.module';
 
+import { HttpModule, JsonpModule } from '@angular/http';
+// import { EventService } from './meetandeat/meetandeat.service';
+
 @NgModule({
     declarations: [
         AppComponent
@@ -19,7 +22,9 @@ import { EventsModule } from './event/events.module';
         TodolistModule,
         MeetAndEatModule,
         EventsModule,
-        routing
+        routing,
+        HttpModule,
+        JsonpModule
     ],
     providers: [ APP_PROVIDERS, appRoutingProviders ],
     bootstrap: [ AppComponent ]

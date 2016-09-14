@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { CompletedFilterPipe, MeetAndEatComponent } from './index';
 
+
 @NgModule({
     declarations: [
         CompletedFilterPipe,
